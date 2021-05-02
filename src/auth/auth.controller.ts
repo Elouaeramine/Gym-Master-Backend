@@ -1,12 +1,29 @@
+import { RegisterDto } from './models/register.dto';
 import { UserService } from './../user/user.service';
-import { Body, Controller, Post } from '@nestjs/common';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  NotFoundException,
+  Post,
+  Res,
+} from '@nestjs/common';
 import * as bcrypt from 'bcryptjs';
+import { LoginDto } from './models/login.dto';
+import { Response } from 'express';
+import { JwtService } from '@nestjs/jwt';
 
 @Controller()
 export class AuthController {
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private jwtService: JwtService,
+  ) {}
   @Post('register')
-  async register(@Body() body) {
+  async register(@Body() body: RegisterDto) {
+    if (body.password !== body.password_confirm) {
+      throw new BadRequestException('Passwords do not Match !');
+    }
     const hashed = await bcrypt.hash(body.password, 12);
     return this.userService.create({
       first_name: body.first_name,
@@ -14,5 +31,25 @@ export class AuthController {
       email: body.email,
       password: hashed,
     });
+  }
+
+  @Post('login')
+  async login(
+    @Body() body: LoginDto,
+    @Res({ passthrough: true }) response: Response,
+  ) {
+    const user = await this.userService.findOne({
+      where: { email: body.email },
+    });
+    if (!user) {
+      throw new NotFoundException('User Not Found !');
+    }
+
+    if (!(await bcrypt.compare(body.password, user.password))) {
+      throw new BadRequestException('Invalid Credentials !');
+    }
+
+    const jwt = this.jwtService.signAsync({ id: user.id });
+    return user;
   }
 }
