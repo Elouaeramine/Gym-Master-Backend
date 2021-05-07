@@ -1,12 +1,16 @@
+import { JwtAuthGuard } from './../auth/guards/jwt-auth.guard';
 import { UserService } from './user.service';
-import { User } from './model/user.entity';
-import { Controller, Get } from '@nestjs/common';
+import { UserEntity } from './model/user.entity';
+import { User } from '../utilities/user.decorator';
+import { Controller, Get, UseGuards } from '@nestjs/common';
 
 @Controller('user')
 export class UserController {
   constructor(private userService: UserService) {}
   @Get()
-  async all(): Promise<User[]> {
+  @UseGuards(JwtAuthGuard)
+  async all(@User() user: any): Promise<UserEntity[]> {
+    console.log(user);
     return this.userService.all();
   }
 }

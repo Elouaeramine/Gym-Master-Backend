@@ -6,11 +6,9 @@ import {
   Controller,
   NotFoundException,
   Post,
-  Res,
 } from '@nestjs/common';
 import * as bcrypt from 'bcryptjs';
 import { LoginDto } from './models/login.dto';
-import { Response } from 'express';
 import { JwtService } from '@nestjs/jwt';
 
 @Controller()
@@ -34,10 +32,7 @@ export class AuthController {
   }
 
   @Post('login')
-  async login(
-    @Body() body: LoginDto,
-    @Res({ passthrough: true }) response: Response,
-  ) {
+  async login(@Body() body: LoginDto) {
     const user = await this.userService.findOne({
       where: { email: body.email },
     });
@@ -50,6 +45,8 @@ export class AuthController {
     }
 
     const jwt = this.jwtService.signAsync({ id: user.id });
-    return user;
+    return {
+      access_token: (await jwt).toString(),
+    };
   }
 }
