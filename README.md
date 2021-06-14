@@ -1,5 +1,11 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><g xmlns="http://www.w3.org/2000/svg" id="Group_1716" data-name="Group 1716" transform="translate(-4336 -1162)">
+          <rect id="Rectangle_334-2" data-name="Rectangle 334" class="cls-10" width="16" height="88" rx="8" transform="translate(4569 1201)"/>
+          <rect id="Rectangle_337-2" data-name="Rectangle 337" class="cls-10" width="17" height="59" rx="8.5" transform="translate(4588 1216)"/>
+          <rect id="Rectangle_338-3" data-name="Rectangle 338" class="cls-10" width="16" height="88" rx="8" transform="translate(4503 1202)"/>
+          <rect id="Rectangle_339-3" data-name="Rectangle 339" class="cls-10" width="17" height="59" rx="8.5" transform="translate(4483 1217)"/>
+          <rect id="Rectangle_341-2" data-name="Rectangle 341" class="cls-10" width="16" height="43" rx="8" transform="translate(4566 1239) rotate(90)"/>
+        </g></a>
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
