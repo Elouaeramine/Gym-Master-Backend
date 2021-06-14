@@ -67,11 +67,30 @@ $ CREATE USER gymmaster@localhost IDENTIFIED BY 'GymMaster';
 
 
 # Adding privileges
-$ GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+$ GRANT ALL PRIVILEGES ON * . * TO  gymmaster@localhost;
 
 # Applying changes
 $ FLUSH PRIVILEGES;
 ```
+
+To Connect with the new user 
+```bash
+
+# Connecting with the new user
+mysql -u gymmaster -p 
+
+# Enter Password : 
+
+```
+
+Then you should create a database called gymmaster.
+```bash
+
+# Creating a new database 
+mysql> CREATE DATABASE gymmaster;
+
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
