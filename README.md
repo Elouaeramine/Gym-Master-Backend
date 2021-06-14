@@ -58,6 +58,20 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Database Connection 
+In this project we are using MySQL database.
+To enable database access via TypeORM . You should create a new MySQL user
+```bash
+# Creating a new user
+$ CREATE USER gymmaster@localhost IDENTIFIED BY 'GymMaster';
+
+
+# Adding privileges
+$ GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+
+# Applying changes
+$ FLUSH PRIVILEGES;
+```
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
