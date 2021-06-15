@@ -15,4 +15,9 @@ export class GymController {
   async findOne(@Param('id') id: number) {
     return this.gymService.findOne(id);
   }
+
+  @Get('/:id/packs')
+  async getPacks(@Param('id') id: number) {
+    return this.gymService.getPacks(id);
+  }
 }

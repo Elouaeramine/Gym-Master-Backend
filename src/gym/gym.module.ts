@@ -1,3 +1,4 @@
+import { PackEntity } from './model/pack.entity';
 import { GymEntity } from './model/gym.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
@@ -7,6 +8,6 @@ import { GymService } from './gym.service';
 @Module({
   controllers: [GymController],
   providers: [GymService],
-  imports: [TypeOrmModule.forFeature([GymEntity])],
+  imports: [TypeOrmModule.forFeature([GymEntity, PackEntity])],
 })
 export class GymModule {}

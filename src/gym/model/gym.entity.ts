@@ -20,6 +20,6 @@ export class GymEntity {
   @Column()
   coverImageUrl: string;
 
-  @OneToMany(() => PackEntity, (pack) => pack.gym)
+  @OneToMany(() => PackEntity, (pack) => pack.gym, { cascade: true })
   packs: PackEntity[];
 }
