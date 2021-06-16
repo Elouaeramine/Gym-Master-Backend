@@ -7,7 +7,9 @@
 
 ## Description
 
-Gym Master allows users to find a gym according to his preferences. ( Location , Name , Packs ) and more criterias. Users  can also read Fitness blogs.
+Gym Master allows users to find a gym according to his preferences. 
+( Location , Name , Packs ) and more criterias by creating accounts and browsing gyms . 
+Users  can also read Fitness blogs.
 
 ## Installation
 
