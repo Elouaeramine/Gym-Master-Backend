@@ -46,6 +46,7 @@ export class AuthController {
 
     const jwt = this.jwtService.signAsync({ id: user.id });
     return {
+      ...user,
       access_token: (await jwt).toString(),
     };
   }
