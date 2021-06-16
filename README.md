@@ -7,7 +7,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Gym Master allows users to find a gym according to his preferences. ( Location , Name , Packs ) and more criterias. Users  can also read Fitness blogs.
 
 ## Installation
 
